@@ -1,0 +1,14 @@
+{
+    "name": "eventjet/coding-standard",
+    "description": "Eventjet Coding Standard",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Rudolph Gottesheim",
+            "email": "r.gottesheim@loot.at"
+        }
+    ],
+    "require": {
+        "squizlabs/php_codesniffer": "^3.2"
+    }
+}
