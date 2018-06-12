@@ -8,4 +8,5 @@
             <property name="ignoreNewlines" value="true"/>
         </properties>
     </rule>
+    <rule ref="Generic.Formatting.NoSpaceAfterCast"/>
 </ruleset>
