@@ -1,0 +1,11 @@
+build:
+  nodes:
+    ej-default:
+      environment:
+        php:
+          version: "7.1"
+      tests:
+        override:
+          - 'vendor/bin/phpunit'
+checks:
+  php: false
