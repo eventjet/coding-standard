@@ -1,5 +1,6 @@
 {
     "name": "eventjet/coding-standard",
+    "type": "phpcodesniffer-standard",
     "description": "Eventjet Coding Standard",
     "license": "proprietary",
     "authors": [
