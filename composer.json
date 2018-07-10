@@ -2,11 +2,15 @@
     "name": "eventjet/coding-standard",
     "type": "phpcodesniffer-standard",
     "description": "Eventjet Coding Standard",
-    "license": "proprietary",
+    "license": "MIT",
     "authors": [
         {
             "name": "Rudolph Gottesheim",
             "email": "r.gottesheim@loot.at"
+        },
+        {
+            "name": "Thomas Rieschl",
+            "email": "thomas.rieschl@eventjet.at"
         }
     ],
     "require": {
