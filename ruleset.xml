@@ -219,60 +219,6 @@
         <property name="spacesCountBeforeColon" value="0"/>
     </rule>
 
-    <!-- Require types to be written as natively if possible;
-            require iterable types to specify phpDoc with their content;
-            forbid useless/duplicated information in phpDoc -->
-    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration">
-        <properties>
-            <property name="enableEachParameterAndReturnInspection" value="true"/>
-            <property
-                    name="usefulAnnotations"
-                    type="array"
-                    value="
-                    @after,
-                    @afterClass,
-                    @AfterMethods,
-                    @Attribute,
-                    @Attributes,
-                    @before,
-                    @beforeClass,
-                    @BeforeMethods,
-                    @covers,
-                    @coversDefaultClass,
-                    @coversNothing,
-                    @dataProvider,
-                    @depends,
-                    @deprecated,
-                    @doesNotPerformAssertions,
-                    @Enum,
-                    @expectedDeprecation,
-                    @expectedException,
-                    @expectedExceptionCode,
-                    @expectedExceptionMessage,
-                    @expectedExceptionMessageRegExp,
-                    @group,
-                    @Groups,
-                    @IgnoreAnnotation,
-                    @internal,
-                    @Iterations,
-                    @link,
-                    @ODM\,
-                    @ORM\,
-                    @requires,
-                    @Required,
-                    @Revs,
-                    @runInSeparateProcess,
-                    @runTestsInSeparateProcesses,
-                    @see,
-                    @Target,
-                    @test,
-                    @throws,
-                    @uses
-                "
-            />
-        </properties>
-    </rule>
-
     <!-- Checks that there's a single space between a typehint and a parameter name
      and that there's no whitespace between a nullability symbol and a typehint -->
     <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHintSpacing"/>
