@@ -20,10 +20,16 @@ This sniff can be problematic: If you implement interfaces or have your own inte
 parameter type hints and return types set, enforcing this sniff would lead to a BC break.
 This sniff is also set to `phpcs-only`, so `phpcbf` _won't_ fix errors automatically. 
 
-To use this ruleset, just use the use the corresponding file in your phpcs rule ref:
+To use this ruleset, just use the use the corresponding file in your phpcs rule ref instead of the default one:
 
 ```xml
-<rule ref="./vendor/eventjet/coding-standard/ruleset_strict.xml"/>
+<?xml version="1.0"?>
+<ruleset name="Eventjet Coding Standard">
+    <rule ref="./vendor/eventjet/coding-standard/ruleset_strict.xml"/>
+
+    <file>src</file>
+    <file>tests</file>
+</ruleset>
 ```
 
 ## Excluding sniffs:
