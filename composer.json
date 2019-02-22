@@ -14,7 +14,7 @@
         }
     ],
     "require": {
-        "slevomat/coding-standard": "^4.6",
+        "slevomat/coding-standard": "^5.0",
         "squizlabs/php_codesniffer": "^3.3"
     },
     "require-dev": {
