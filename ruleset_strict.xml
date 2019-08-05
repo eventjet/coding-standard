@@ -11,51 +11,6 @@
     <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration" phpcs-only="true">
         <properties>
             <property name="enableEachParameterAndReturnInspection" value="true"/>
-            <property
-                    name="usefulAnnotations"
-                    type="array"
-                    value="
-                    @after,
-                    @afterClass,
-                    @AfterMethods,
-                    @Attribute,
-                    @Attributes,
-                    @before,
-                    @beforeClass,
-                    @BeforeMethods,
-                    @covers,
-                    @coversDefaultClass,
-                    @coversNothing,
-                    @dataProvider,
-                    @depends,
-                    @deprecated,
-                    @doesNotPerformAssertions,
-                    @Enum,
-                    @expectedDeprecation,
-                    @expectedException,
-                    @expectedExceptionCode,
-                    @expectedExceptionMessage,
-                    @expectedExceptionMessageRegExp,
-                    @group,
-                    @Groups,
-                    @IgnoreAnnotation,
-                    @internal,
-                    @Iterations,
-                    @link,
-                    @ODM\,
-                    @ORM\,
-                    @requires,
-                    @Required,
-                    @Revs,
-                    @runInSeparateProcess,
-                    @runTestsInSeparateProcesses,
-                    @see,
-                    @Target,
-                    @test,
-                    @throws,
-                    @uses
-                "
-            />
         </properties>
     </rule>
 </ruleset>
