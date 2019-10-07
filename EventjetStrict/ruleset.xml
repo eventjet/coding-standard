@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<ruleset name="Eventjet Strict Coding Standard">
+<ruleset name="EventjetStrict">
     <description>Eventjet Strict Coding Standard</description>
 
     <!-- include all regular rules -->
-    <rule ref="./ruleset.xml"/>
+    <rule ref="Eventjet"/>
 
     <!-- Require types to be written as natively if possible;
             require iterable types to specify phpDoc with their content;
