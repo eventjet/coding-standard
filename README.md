@@ -4,8 +4,8 @@
 Add the following `phpcs.xml` file to your project's root:
 ```xml
 <?xml version="1.0"?>
-<ruleset name="Eventjet Coding Standard">
-    <rule ref="./vendor/eventjet/coding-standard/ruleset.xml"/>
+<ruleset>
+    <rule ref="Eventjet"/>
 
     <file>src</file>
     <file>tests</file>
@@ -13,19 +13,19 @@ Add the following `phpcs.xml` file to your project's root:
 ```
 
 ## More strict rules:
-There is also a `ruleset_strict.xml` which adds the
+There is also a more strict ruleset which adds the
 [SlevomatCodingStandard.TypeHints.TypeHintDeclaration](https://github.com/slevomat/coding-standard#slevomatcodingstandardtypehintstypehintdeclaration-) sniff.
 
 This sniff can be problematic: If you implement interfaces or have your own interfaces which don't have
 parameter type hints and return types set, enforcing this sniff would lead to a BC break.
 This sniff is also set to `phpcs-only`, so `phpcbf` _won't_ fix errors automatically. 
 
-To use this ruleset, just use the use the corresponding file in your phpcs rule ref instead of the default one:
+To use this ruleset, just use the use the corresponding rule name in your phpcs rule ref instead of the default one:
 
 ```xml
 <?xml version="1.0"?>
-<ruleset name="Eventjet Coding Standard">
-    <rule ref="./vendor/eventjet/coding-standard/ruleset_strict.xml"/>
+<ruleset>
+    <rule ref="EventjetStrict"/>
 
     <file>src</file>
     <file>tests</file>
@@ -45,8 +45,8 @@ To exclude a sniff for a certain set of files, reference  the rule explicitly an
 It is also possible to exclude a sniff completely:
 ```xml
 <?xml version="1.0"?>
-<ruleset name="Eventjet Coding Standard">
-    <rule ref="./vendor/eventjet/coding-standard/ruleset.xml">
+<ruleset>
+    <rule ref="Eventjet">
         <exclude name="SlevomatCodingStandard.Classes.ClassConstantVisibility"/>
     </rule>
 
