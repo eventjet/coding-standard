@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
-<ruleset name="Eventjet Coding Standard">
+<ruleset
+        name="Eventjet"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../vendor/squizlabs/php_codesniffer/phpcs.xsd"
+>
     <description>Eventjet Coding Standard</description>
 
-    <!-- include slevomat rules, relative path from PHPCS source location -->
-    <config name="installed_paths" value="../../slevomat/coding-standard"/>
-
-    <!-- base rule: PSR2 -->
-    <rule ref="PSR2"/>
+    <!-- base rule: PSR-12 -->
+    <rule ref="PSR12"/>
 
     <!-- Bans the use of the PHP long array syntax -->
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
@@ -140,10 +141,9 @@
     <!-- checks if Throwable is used instead of Exception -->
     <rule ref="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly"/>
 
-    <!-- Require presence of declare(strict_types=1) -->
     <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
         <properties>
-            <property name="newlinesCountBetweenOpenTagAndDeclare" value="0"/>
+            <property name="newlinesCountBetweenOpenTagAndDeclare" value="2"/>
             <property name="spacesCountAroundEqualsSign" value="0"/>
             <property name="newlinesCountAfterDeclare" value="2"/>
         </properties>
@@ -184,23 +184,6 @@
     and semicolon and disallows use of bracketed syntax. -->
     <rule ref="SlevomatCodingStandard.Namespaces.NamespaceDeclaration"/>
 
-    <!-- Enforces configurable number of lines before and after namespace -->
-    <rule ref="SlevomatCodingStandard.Namespaces.NamespaceSpacing">
-        <properties>
-            <property name="linesCountBeforeNamespace" value="1"/>
-            <property name="linesCountAfterNamespace" value="1"/>
-        </properties>
-    </rule>
-
-    <!-- Configurable number of lines before first use, after last use and between two different types of use -->
-    <rule ref="SlevomatCodingStandard.Namespaces.UseSpacing">
-        <properties>
-            <property name="linesCountBeforeFirstUse" value="1"/>
-            <property name="linesCountBetweenUseTypes" value="0"/>
-            <property name="linesCountAfterLastUse" value="1"/>
-        </properties>
-    </rule>
-
     <!-- Enforces using shorthand scalar typehint variants in phpDocs -->
     <rule ref="SlevomatCodingStandard.TypeHints.LongTypeHints"/>
 
@@ -216,7 +199,9 @@
 
     <!-- Enforces consistent formatting of return typehints -->
     <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing">
-        <property name="spacesCountBeforeColon" value="0"/>
+        <properties>
+            <property name="spacesCountBeforeColon" value="0"/>
+        </properties>
     </rule>
 
     <!-- Checks that there's a single space between a typehint and a parameter name
@@ -234,4 +219,48 @@
 
     <!-- Require ? when default value is null -->
     <rule ref="SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue"/>
+
+    <!-- Forbid PHP 4 constructors -->
+    <rule ref="Generic.NamingConventions.ConstructorName"/>
+
+    <!-- Force PHP 7 param and return types to be lowercased -->
+    <rule ref="Generic.PHP.LowerCaseType"/>
+
+    <!-- Forbid useless comments -->
+    <rule ref="SlevomatCodingStandard.Commenting.ForbiddenComments">
+        <properties>
+            <property name="forbiddenCommentPatterns" type="array">
+                <element value="~^(?:(?!private|protected|static)\S+ )?(?:con|de)structor\.\z~i"/>
+                <element value="~^Created by .+\.\z~i"/>
+                <element value="~^(User|Date|Time): \S+\z~i"/>
+                <element value="~^\S+ [gs]etter\.\z~i"/>
+                <element value="~^Class \S+\z~i"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- Require new instances with parentheses -->
+    <rule ref="SlevomatCodingStandard.ControlStructures.NewWithParentheses"/>
+
+    <!-- Forbid usage of conditions when a simple return can be used -->
+    <rule ref="SlevomatCodingStandard.ControlStructures.UselessIfConditionWithReturn"/>
+
+    <!-- Forbid unused variables passed to closures via `use` -->
+    <rule ref="SlevomatCodingStandard.Functions.UnusedInheritedVariablePassedToClosure"/>
+
+    <!-- Forbid useless parentheses -->
+    <rule ref="SlevomatCodingStandard.PHP.UselessParentheses"/>
+
+    <!-- Forbid class being in a file with different name -->
+    <rule ref="Squiz.Classes.ClassFileName"/>
+    <!-- Force `self::` for self-reference, force lower-case self, forbid spaces around `::` -->
+    <rule ref="Squiz.Classes.SelfMemberReference"/>
+
+    <rule ref="Squiz.NamingConventions.ValidVariableName">
+        <exclude name="Squiz.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+    </rule>
+
+    <!-- Require PHP function calls in lowercase -->
+    <rule ref="Squiz.PHP.LowercasePHPFunctions"/>
+
 </ruleset>
