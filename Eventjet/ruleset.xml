@@ -264,4 +264,11 @@
 
     <!-- Require PHP function calls in lowercase -->
     <rule ref="Squiz.PHP.LowercasePHPFunctions"/>
+
+    <!-- no space after closing parenthesis and colon in alternate control structures -->
+    <rule ref="Squiz.ControlStructures.ControlSignature">
+        <properties>
+            <property name="requiredSpacesBeforeColon" value="0" />
+        </properties>
+    </rule>
 </ruleset>
