@@ -1,8 +1,16 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Eventjet\CodingStandard\Test;
 
+use DirectoryIterator;
 use PHPUnit\Framework\TestCase;
+
+use function array_merge;
+use function exec;
+use function implode;
+use function sprintf;
 
 final class RulesTest extends TestCase
 {
@@ -34,27 +42,27 @@ final class RulesTest extends TestCase
 
     private function assertIsValid(string $file): void
     {
-        $command = \sprintf('%s/../vendor/bin/phpcs --standard=%s/../ruleset.xml %s', __DIR__, __DIR__, $file);
-        \exec($command, $output, $return);
-        $lines = \array_merge(
-            [\sprintf('Failed asserting that %s is valid.', $file)],
+        $command = sprintf('%s/../vendor/bin/phpcs --standard=Eventjet %s', __DIR__, $file);
+        exec($command, $output, $return);
+        $lines = array_merge(
+            [sprintf('Failed asserting that %s is valid.', $file)],
             $output
         );
-        $message = \implode("\n", $lines);
+        $message = implode("\n", $lines);
         $this->assertSame(0, $return, $message);
     }
 
     private function assertIsInvalid(string $file): void
     {
-        $command = \sprintf('%s/../vendor/bin/phpcs --standard=%s/../ruleset.xml %s', __DIR__, __DIR__, $file);
-        \exec($command, $output, $return);
-        $this->assertNotSame(0, $return, \sprintf('Failed asserting that %s is invalid.', $file));
+        $command = sprintf('%s/../vendor/bin/phpcs --standard=Eventjet %s', __DIR__, $file);
+        exec($command, $output, $return);
+        $this->assertNotSame(0, $return, sprintf('Failed asserting that %s is invalid.', $file));
     }
 
     private function gatherFiles(string $directory): array
     {
         $files = [];
-        foreach (new \DirectoryIterator($directory) as $file) {
+        foreach (new DirectoryIterator($directory) as $file) {
             if (!$file->isFile()) {
                 continue;
             }

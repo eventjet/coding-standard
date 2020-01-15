@@ -271,4 +271,8 @@
             <property name="requiredSpacesBeforeColon" value="0" />
         </properties>
     </rule>
+
+    <!-- Checks that there's a single space between a typehint and a parameter name
+     and that there's no whitespace between a nullability symbol and a typehint -->
+    <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHintSpacing"/>
 </ruleset>
