@@ -49,14 +49,14 @@ final class RulesTest extends TestCase
             $output
         );
         $message = implode("\n", $lines);
-        $this->assertSame(0, $return, $message);
+        self::assertSame(0, $return, $message);
     }
 
     private function assertIsInvalid(string $file): void
     {
         $command = sprintf('%s/../vendor/bin/phpcs --standard=Eventjet %s', __DIR__, $file);
         exec($command, $output, $return);
-        $this->assertNotSame(0, $return, sprintf('Failed asserting that %s is invalid.', $file));
+        self::assertNotSame(0, $return, sprintf('Failed asserting that %s is invalid.', $file));
     }
 
     private function gatherFiles(string $directory): array

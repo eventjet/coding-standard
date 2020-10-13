@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <ruleset
-        name="Eventjet"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="../vendor/squizlabs/php_codesniffer/phpcs.xsd"
+    name="Eventjet"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../vendor/squizlabs/php_codesniffer/phpcs.xsd"
 >
     <description>Eventjet Coding Standard</description>
 
@@ -41,9 +41,9 @@
     <rule ref="Generic.PHP.ForbiddenFunctions">
         <properties>
             <property
-                    name="forbiddenFunctions"
-                    type="array"
-                    value="
+                name="forbiddenFunctions"
+                type="array"
+                value="
                     chop => rtrim,
                     close => closedir,
                     compact => null,
@@ -117,9 +117,9 @@
     <rule ref="SlevomatCodingStandard.Commenting.ForbiddenAnnotations">
         <properties>
             <property
-                    name="forbiddenAnnotations"
-                    type="array"
-                    value="
+                name="forbiddenAnnotations"
+                type="array"
+                value="
                     @api,
                     @author,
                     @category,
@@ -268,11 +268,16 @@
     <!-- no space after closing parenthesis and colon in alternate control structures -->
     <rule ref="Squiz.ControlStructures.ControlSignature">
         <properties>
-            <property name="requiredSpacesBeforeColon" value="0" />
+            <property name="requiredSpacesBeforeColon" value="0"/>
         </properties>
     </rule>
 
     <!-- Checks that there's a single space between a typehint and a parameter name
      and that there's no whitespace between a nullability symbol and a typehint -->
     <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHintSpacing"/>
+
+    <!-- Internal functions MUST be imported. -->
+    <rule ref="WebimpressCodingStandard.PHP.ImportInternalFunction"/>
+    <!-- Internal constants MUST be imported. -->
+    <rule ref="WebimpressCodingStandard.PHP.ImportInternalConstant"/>
 </ruleset>
