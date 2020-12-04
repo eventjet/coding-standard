@@ -5,24 +5,17 @@ on: [pull_request]
 jobs:
   build:
 
+    strategy:
+      matrix:
+        php: ['7.4', '8.0']
+
     runs-on: ubuntu-latest
     container:
-      image: eventjet/checks-7.4:latest
+      image: eventjet/checks-${{ matrix.php }}:latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: SSH agent
-        uses: webfactory/ssh-agent@v0.2.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Prepare environment
-        run: |
-          composer config http-basic.pack.eventjet.at ${{ secrets.SATIS_USER }} ${{ secrets.SATIS_PASSWORD }}
-          mkdir -p /root/.ssh
-          ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
 
       - name: Composer Cache
         uses: actions/cache@v1
