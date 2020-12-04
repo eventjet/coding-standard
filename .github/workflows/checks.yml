@@ -17,17 +17,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: SSH agent
-        uses: webfactory/ssh-agent@v0.2.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Prepare environment
-        run: |
-          composer config http-basic.pack.eventjet.at ${{ secrets.SATIS_USER }} ${{ secrets.SATIS_PASSWORD }}
-          mkdir -p /root/.ssh
-          ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
-
       - name: Composer Cache
         uses: actions/cache@v1
         with:
