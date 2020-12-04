@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 3.3.0 - 2020-12-04
+
+### Added
+
+- Nothing.
+
+### Changed
+
+- [#11](https://github.com/eventjet/coding-standard/pull/11) adds support for PHP 8
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 3.2.0 - 2020-10-13
 
 ### Added
