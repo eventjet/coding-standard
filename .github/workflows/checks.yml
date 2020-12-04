@@ -11,7 +11,7 @@ jobs:
 
     runs-on: ubuntu-latest
     container:
-      image: eventjet/checks-{{ matrix.php }}:latest
+      image: eventjet/checks-${{ matrix.php }}:latest
 
     steps:
       - name: Checkout
