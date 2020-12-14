@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 3.4.0 - 2020-12-14
+
+### Added
+
+- [#12](https://github.com/eventjet/coding-standard/pull/12) adds a new rule: require a blank line between methods
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 3.3.0 - 2020-12-04
 
 ### Added
