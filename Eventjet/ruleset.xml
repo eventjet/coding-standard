@@ -101,6 +101,15 @@
         </properties>
     </rule>
 
+    <!-- Require blank lines between methods -->
+    <rule ref="Squiz.WhiteSpace.FunctionSpacing">
+        <properties>
+            <property name="spacing" value="1"/>
+            <property name="spacingBeforeFirst" value="0"/>
+            <property name="spacingAfterLast" value="0"/>
+        </properties>
+    </rule>
+
     <!-- Require space around logical operators -->
     <rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
     <!-- Forbid spaces around `->` operator -->
