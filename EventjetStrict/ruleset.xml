@@ -17,4 +17,6 @@
     <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint" phpcs-only="true"/>
     <rule ref="SlevomatCodingStandard.Commenting.UselessFunctionDocComment" phpcs-only="true"/>
 
+    <!-- Disallow array syntax (T[]) in favor of generic syntax (array<array-key, T>) -->
+    <rule ref="SlevomatCodingStandard.TypeHints.DisallowArrayTypeHintSyntax"/>
 </ruleset>

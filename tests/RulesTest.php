@@ -17,32 +17,48 @@ final class RulesTest extends TestCase
     /**
      * @dataProvider valid
      */
-    public function testValid(string $file): void
+    public function testValid(string $file, string $standard): void
     {
-        $this->assertIsValid($file);
+        $this->assertIsValid($file, $standard);
     }
 
-    public function valid(): array
+    /**
+     * @return iterable<string, array{string, string}>
+     */
+    public function valid(): iterable
     {
-        return $this->gatherFiles(__DIR__ . '/fixtures/valid');
+        foreach ($this->gatherFiles(__DIR__ . '/fixtures/valid') as $key => $file) {
+            yield $key => [$file, 'Eventjet'];
+        }
+        foreach ($this->gatherFiles(__DIR__ . '/fixtures/valid-strict') as $key => $file) {
+            yield $key => [$file, 'EventjetStrict'];
+        }
     }
 
     /**
      * @dataProvider invalid
      */
-    public function testInvalid(string $file): void
+    public function testInvalid(string $file, string $standard): void
     {
-        $this->assertIsInvalid($file);
+        $this->assertIsInvalid($file, $standard);
     }
 
-    public function invalid(): array
+    /**
+     * @return iterable<string, array{string, string}>
+     */
+    public function invalid(): iterable
     {
-        return $this->gatherFiles(__DIR__ . '/fixtures/invalid');
+        foreach ($this->gatherFiles(__DIR__ . '/fixtures/invalid') as $key => $file) {
+            yield $key => [$file, 'Eventjet'];
+        }
+        foreach ($this->gatherFiles(__DIR__ . '/fixtures/invalid-strict') as $key => $file) {
+            yield $key => [$file, 'EventjetStrict'];
+        }
     }
 
-    private function assertIsValid(string $file): void
+    private function assertIsValid(string $file, string $standard): void
     {
-        $command = sprintf('%s/../vendor/bin/phpcs --standard=Eventjet %s', __DIR__, $file);
+        $command = sprintf('%s/../vendor/bin/phpcs --standard=%s %s', __DIR__, $standard, $file);
         exec($command, $output, $return);
         $lines = array_merge(
             [sprintf('Failed asserting that %s is valid.', $file)],
@@ -52,13 +68,16 @@ final class RulesTest extends TestCase
         self::assertSame(0, $return, $message);
     }
 
-    private function assertIsInvalid(string $file): void
+    private function assertIsInvalid(string $file, string $standard): void
     {
-        $command = sprintf('%s/../vendor/bin/phpcs --standard=Eventjet %s', __DIR__, $file);
+        $command = sprintf('%s/../vendor/bin/phpcs --standard=%s %s', __DIR__, $standard, $file);
         exec($command, $output, $return);
         self::assertNotSame(0, $return, sprintf('Failed asserting that %s is invalid.', $file));
     }
 
+    /**
+     * @return array<string, string>
+     */
     private function gatherFiles(string $directory): array
     {
         $files = [];
@@ -66,7 +85,7 @@ final class RulesTest extends TestCase
             if (!$file->isFile()) {
                 continue;
             }
-            $files[$file->getFilename()] = [$file->getPathname()];
+            $files[$file->getFilename()] = $file->getPathname();
         }
         return $files;
     }
