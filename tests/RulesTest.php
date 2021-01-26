@@ -22,6 +22,9 @@ final class RulesTest extends TestCase
         $this->assertIsValid($file);
     }
 
+    /**
+     * @return array<string, array{string}>
+     */
     public function valid(): array
     {
         return $this->gatherFiles(__DIR__ . '/fixtures/valid');
@@ -35,6 +38,9 @@ final class RulesTest extends TestCase
         $this->assertIsInvalid($file);
     }
 
+    /**
+     * @return array<string, array{string}>
+     */
     public function invalid(): array
     {
         return $this->gatherFiles(__DIR__ . '/fixtures/invalid');
@@ -59,6 +65,9 @@ final class RulesTest extends TestCase
         self::assertNotSame(0, $return, sprintf('Failed asserting that %s is invalid.', $file));
     }
 
+    /**
+     * @return array<string, array{string}>
+     */
     private function gatherFiles(string $directory): array
     {
         $files = [];
