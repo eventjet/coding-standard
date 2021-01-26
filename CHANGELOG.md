@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 3.5.0 - 2021-01-26
+
+### Added
+
+- [#13](https://github.com/eventjet/coding-standard/pull/13) adds a new rule: Disallow array syntax (T[]) in favor of generic syntax (array<array-key, T>)
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 3.4.0 - 2020-12-14
 
 ### Added
