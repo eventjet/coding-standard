@@ -289,4 +289,7 @@
     <rule ref="WebimpressCodingStandard.PHP.ImportInternalFunction"/>
     <!-- Internal constants MUST be imported. -->
     <rule ref="WebimpressCodingStandard.PHP.ImportInternalConstant"/>
+
+    <!-- Disallow array syntax (T[]) in favor of generic syntax (array<array-key, T>) -->
+    <rule ref="SlevomatCodingStandard.TypeHints.DisallowArrayTypeHintSyntax"/>
 </ruleset>
