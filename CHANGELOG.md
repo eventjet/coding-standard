@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 3.6.1 - 2021-02-15
+
+### Added
+
+- Nothing.
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- [#15](https://github.com/eventjet/coding-standard/pull/15) prevents `phpcbf` from fixing loose comparison operators automatically
+
 ## 3.6.0 - 2021-02-15
 
 ### Added
