@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 3.6.0 - 2021-02-15
+
+### Added
+
+- [#14](https://github.com/eventjet/coding-standard/pull/14) adds new rule: Disallow using loose == and != comparison operators
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 3.5.0 - 2021-01-26
 
 ### Added
