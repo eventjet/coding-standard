@@ -292,4 +292,7 @@
 
     <!-- Disallow array syntax (T[]) in favor of generic syntax (array<array-key, T>) -->
     <rule ref="SlevomatCodingStandard.TypeHints.DisallowArrayTypeHintSyntax"/>
+
+    <!-- Disallows using loose == and != comparison operators -->
+    <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators"/>
 </ruleset>
