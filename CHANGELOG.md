@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 3.7.0 - 2021-04-23
+
+### Added
+
+- [#16](https://github.com/eventjet/coding-standard/pull/16) adds support for `slevomat/coding-standard:^7.0`
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 3.6.1 - 2021-02-15
 
 ### Added
