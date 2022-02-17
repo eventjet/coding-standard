@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 3.7.1 - 2022-02-17
+
+### Added
+
+- [#17](https://github.com/eventjet/coding-standard/pull/17) adds support for PHP 8.1
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 3.7.0 - 2021-04-23
 
 ### Added
