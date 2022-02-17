@@ -7,7 +7,10 @@ jobs:
 
     strategy:
       matrix:
-        php: ['7.4', '8.0']
+        php: ["7.4", "8.0", "8.1"]
+        composer_flags:
+          - '--prefer-lowest'
+          - ''
 
     runs-on: ubuntu-latest
     container:
@@ -17,17 +20,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Prepare environment
+        run: |
+          echo "COMPOSER_CACHE=$(composer config cache-dir)" >> $GITHUB_ENV
+
       - name: Composer Cache
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
-          path: $(composer config cache-files-dir)
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
-          restore-keys: |
-            ${{ runner.os }}-composer-
+          path: |
+            ${{ env.COMPOSER_CACHE }}
+            vendor
+          key: ${{ runner.os }}-composer
 
       - name: Install dependencies
         run: |
-          composer install --no-progress --no-suggest --no-interaction > /dev/null
+          composer update --no-progress --no-interaction ${{ matrix.composer_flags }} > /dev/null
 
       - name: Tests
         run: |
