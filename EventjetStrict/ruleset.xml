@@ -22,8 +22,11 @@
         <exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification"/>
     </rule>
     <rule ref="SlevomatCodingStandard.Commenting.UselessFunctionDocComment" phpcs-only="true"/>
+
     <!--
-        [1] PHPStan handles these cases better. For example, we would have to repeat the type in every implementing class if
-        even though it's already defined on the interface. See tests/fixtures/valid/NoArrayReturnTypeAnnotation.php
+        [1] PHPStan handles these cases better. For example, we would have to repeat the type in every implementing
+        class if even though it's already defined on the interface.
+
+        See tests/fixtures/valid/NoArrayReturnTypeAnnotation.php
     -->
 </ruleset>
