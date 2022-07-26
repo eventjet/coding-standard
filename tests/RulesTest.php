@@ -48,7 +48,7 @@ final class RulesTest extends TestCase
 
     private function assertIsValid(string $file): void
     {
-        $command = sprintf('%s/../vendor/bin/phpcs --standard=Eventjet %s', __DIR__, $file);
+        $command = sprintf('%s/../vendor/bin/phpcs --standard=EventjetStrict %s', __DIR__, $file);
         exec($command, $output, $return);
         $lines = array_merge(
             [sprintf('Failed asserting that %s is valid.', $file)],
@@ -60,7 +60,7 @@ final class RulesTest extends TestCase
 
     private function assertIsInvalid(string $file): void
     {
-        $command = sprintf('%s/../vendor/bin/phpcs --standard=Eventjet %s', __DIR__, $file);
+        $command = sprintf('%s/../vendor/bin/phpcs --standard=EventjetStrict %s', __DIR__, $file);
         exec($command, $output, $return);
         self::assertNotSame(0, $return, sprintf('Failed asserting that %s is invalid.', $file));
     }
