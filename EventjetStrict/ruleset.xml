@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <ruleset
-        name="EventjetStrict"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="../vendor/squizlabs/php_codesniffer/phpcs.xsd"
+    name="EventjetStrict"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../vendor/squizlabs/php_codesniffer/phpcs.xsd"
 >
     <description>Eventjet Strict Coding Standard</description>
 
@@ -12,9 +12,21 @@
     <!-- Require types to be written as natively if possible;
             require iterable types to specify phpDoc with their content;
             forbid duplicated information in phpDoc -->
-    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint" phpcs-only="true"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint" phpcs-only="true">
+        <!-- See [1] -->
+        <exclude name="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification"/>
+    </rule>
     <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint" phpcs-only="true"/>
-    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint" phpcs-only="true"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint" phpcs-only="true">
+        <!-- See [1] -->
+        <exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification"/>
+    </rule>
     <rule ref="SlevomatCodingStandard.Commenting.UselessFunctionDocComment" phpcs-only="true"/>
 
+    <!--
+        [1] PHPStan handles these cases better. For example, we would have to repeat the type in every implementing
+        class if even though it's already defined on the interface.
+
+        See tests/fixtures/valid/NoArrayReturnTypeAnnotation.php
+    -->
 </ruleset>
