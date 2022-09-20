@@ -283,7 +283,7 @@
 
     <!-- Checks that there's a single space between a typehint and a parameter name
      and that there's no whitespace between a nullability symbol and a typehint -->
-    <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHintSpacing"/>
+    <rule ref="SlevomatCodingStandard.Classes.PropertyDeclaration"/>
 
     <!-- Internal functions MUST be imported. -->
     <rule ref="WebimpressCodingStandard.PHP.ImportInternalFunction"/>
