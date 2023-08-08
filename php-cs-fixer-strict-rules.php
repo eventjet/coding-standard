@@ -35,6 +35,10 @@ return array_merge($basicRules, [
             'method_private_abstract',
         ],
     ],
+    'ordered_types' => [
+        'sort_algorithm' => 'none',
+        'null_adjustment' => 'always_last',
+    ],
     'self_accessor' => true,
     'static_lambda' => true,
     'trailing_comma_in_multiline' => [
