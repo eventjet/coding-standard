@@ -6,6 +6,7 @@ namespace Eventjet\CodingStandard\Test;
 
 use DirectoryIterator;
 use PHPUnit\Framework\TestCase;
+
 use function array_merge;
 use function basename;
 use function exec;
@@ -50,10 +51,10 @@ final class RulesTest extends TestCase
     /**
      * @return iterable<string, array{string, Tool}>
      */
-    public function valid(): iterable
+    public static function valid(): iterable
     {
         foreach (['phpcs', 'php-cs-fixer'] as $tool) {
-            foreach ($this->gatherFiles(__DIR__ . '/fixtures/valid') as $filename => $path) {
+            foreach (self::gatherFiles(__DIR__ . '/fixtures/valid') as $filename => $path) {
                 yield $tool . ': ' . $filename => [$path[0], $tool];
             }
         }
@@ -75,10 +76,10 @@ final class RulesTest extends TestCase
     /**
      * @return iterable<string, array{string, Tool}>
      */
-    public function invalid(): iterable
+    public static function invalid(): iterable
     {
         foreach (['phpcs', 'php-cs-fixer'] as $tool) {
-            foreach ($this->gatherFiles(__DIR__ . '/fixtures/invalid') as $filename => $path) {
+            foreach (self::gatherFiles(__DIR__ . '/fixtures/invalid') as $filename => $path) {
                 yield $tool . ': ' . $filename => [$path[0], $tool];
             }
         }
@@ -116,7 +117,7 @@ final class RulesTest extends TestCase
     /**
      * @return array<string, array{string}>
      */
-    private function gatherFiles(string $directory): array
+    private static function gatherFiles(string $directory): array
     {
         $files = [];
         foreach (new DirectoryIterator($directory) as $file) {
