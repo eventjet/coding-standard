@@ -43,7 +43,7 @@ final class Config
      */
     private static function strictRules(): array
     {
-        return require(__DIR__ . '/../../php-cs-fixer-rules.php');
+        return require(__DIR__ . '/../../php-cs-fixer-strict-rules.php');
     }
 
     private static function createFinder(): Finder
