@@ -67,9 +67,6 @@ return [
         ],
     ],
     'trim_array_spaces' => true,
-    'types_spaces' => [
-        'space' => 'single',
-    ],
     'whitespace_after_comma_in_array' => [
         'ensure_single_space' => true,
     ],
