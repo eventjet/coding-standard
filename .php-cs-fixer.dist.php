@@ -6,4 +6,4 @@ use Eventjet\CodingStandard\PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 
 $finder = Finder::create()->in(__DIR__)->exclude('tests/fixtures');
-return Config::strict($finder);
+return Config::basic($finder);
