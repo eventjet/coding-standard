@@ -6,13 +6,13 @@ namespace Eventjet\CodingStandard\PhpCsFixer;
 
 use PhpCsFixer\ConfigInterface;
 use PhpCsFixer\Finder;
+use RuntimeException;
 
-use function debug_backtrace;
-use function dirname;
+use function getcwd;
 
 final class Config
 {
-    public static function basic(Finder | null $finder = null): ConfigInterface
+    public static function basic(Finder|null $finder = null): ConfigInterface
     {
         $finder ??= self::createFinder();
         return (new \PhpCsFixer\Config())
@@ -21,7 +21,7 @@ final class Config
             ->setRiskyAllowed(true);
     }
 
-    public static function strict(Finder | null $finder = null): ConfigInterface
+    public static function strict(Finder|null $finder = null): ConfigInterface
     {
         $finder ??= self::createFinder();
         return (new \PhpCsFixer\Config())
@@ -53,7 +53,10 @@ final class Config
 
     private static function callingDir(): string
     {
-        $backtrace = debug_backtrace();
-        return dirname($backtrace[2]['file']);
+        $cwd = getcwd();
+        if ($cwd === false || $cwd === '') {
+            throw new RuntimeException('Could not determine the current base directory');
+        }
+        return $cwd;
     }
 }
