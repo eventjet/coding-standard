@@ -8,41 +8,36 @@ Add the following `.php-cs-fixer.dist.php` file to your project's root:
 
 declare(strict_types=1);
 
-$rules = include __DIR__ . '/vendor/eventjet/coding-standard/php-cs-fixer-rules.php';
-assert(is_array($rules));
+use Eventjet\CodingStandard\PhpCsFixer\Config;
 
-return (new PhpCsFixer\Config())
-    ->setRules($rules)
-    ->setFinder(PhpCsFixer\Finder::create()->in(__DIR__))
-    ->setRiskyAllowed(true);
+return Config::basic();
 ```
 
-The finder will include everything in `.` and excludes `vendor` automatically.
-If you need a more granular directory specification, an array of directories can be passed:
+This will create a basic configuration with a `Finder` that includes everything in `.` and excludes `vendor`.
+If you need a more granular directory specification, you can pass a custom `Finder`:
+
 ```php
 <?php
 
 declare(strict_types=1);
 
-$rules = include __DIR__ . '/vendor/eventjet/coding-standard/php-cs-fixer-rules.php';
-assert(is_array($rules));
-$dirs = [
-    'config',
-    'features',
-    'migrations',
-    'module',
-];
+use Eventjet\CodingStandard\PhpCsFixer\Config;
+use PhpCsFixer\Finder;
 
-return (new PhpCsFixer\Config())
-    ->setRules($rules)
-    ->setFinder(PhpCsFixer\Finder::create()->in($dirs))
-    ->setRiskyAllowed(true);
+$finder = Finder::create()->in(['features', 'module', 'tests'])->exclude('tests/fixtures');
+return Config::basic($finder);
 ```
 
 ### More strict rules:
-To use the strict rules, use the corresponding file instead of `php-cs-fixer-rules.php`:
+To use the strict rules, use the `strict` method::
 ```php
-$rules = include __DIR__ . '/vendor/eventjet/coding-standard/php-cs-fixer-strict-rules.php';
+<?php
+
+declare(strict_types=1);
+
+use Eventjet\CodingStandard\PhpCsFixer\Config;
+
+return Config::strict();
 ```
 The strict rules enforce a union syntax for nullable types, a certain method order and trailing commas everywhere.
 See [the file](https://github.com/eventjet/coding-standard/blob/master/php-cs-fixer-strict-rules.php) for details.

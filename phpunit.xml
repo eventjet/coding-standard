@@ -4,8 +4,6 @@
     bootstrap="vendor/autoload.php"
     beStrictAboutChangesToGlobalState="true"
     beStrictAboutOutputDuringTests="true"
-    verbose="true"
-    convertDeprecationsToExceptions="true"
 >
     <testsuites>
         <testsuite name="Eventjet\CodingStandard">
