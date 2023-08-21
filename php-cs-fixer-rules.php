@@ -19,7 +19,6 @@ return [
     'function_declaration' => [
         'closure_fn_spacing' => 'none',
     ],
-    'function_typehint_space' => true,
     'global_namespace_import' => [
         'import_classes' => true,
         'import_constants' => true,
@@ -59,7 +58,7 @@ return [
     ],
     'phpdoc_trim' => true,
     'php_unit_data_provider_static' => true,
-    'single_space_after_construct' => true,
+    'single_space_around_construct' => true,
     'strict_comparison' => true,
     'trailing_comma_in_multiline' => [
         'elements' => [
@@ -67,6 +66,7 @@ return [
         ],
     ],
     'trim_array_spaces' => true,
+    'type_declaration_spaces' => true,
     'types_spaces' => [
         'space' => 'single',
     ],
