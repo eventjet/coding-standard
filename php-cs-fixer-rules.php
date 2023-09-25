@@ -48,6 +48,7 @@ return [
     ],
     'no_multiline_whitespace_around_double_arrow' => true,
     'no_superfluous_elseif' => true,
+    'no_superfluous_phpdoc_tags' => true,
     'no_trailing_comma_in_singleline' => true,
     'no_unused_imports' => true,
     'no_useless_else' => true,
