@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 return [
     '@PSR12' => true,
+    'array_indentation' => true,
     'array_syntax' => true,
     'binary_operator_spaces' => true,
     'cast_spaces' => [
