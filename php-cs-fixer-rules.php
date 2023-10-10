@@ -43,7 +43,12 @@ return [
     'no_empty_phpdoc' => true,
     'no_extra_blank_lines' => [
         'tokens' => [
+            'continue',
             'extra',
+            'parenthesis_brace_block',
+            'return',
+            'square_brace_block',
+            'throw',
             'use',
         ],
     ],
