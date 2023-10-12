@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 return [
     '@PSR12' => true,
+    'array_indentation' => true,
     'array_syntax' => true,
     'binary_operator_spaces' => true,
     'cast_spaces' => [
@@ -42,7 +43,12 @@ return [
     'no_empty_phpdoc' => true,
     'no_extra_blank_lines' => [
         'tokens' => [
+            'continue',
             'extra',
+            'parenthesis_brace_block',
+            'return',
+            'square_brace_block',
+            'throw',
             'use',
         ],
     ],
