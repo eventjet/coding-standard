@@ -34,7 +34,7 @@ return [
         'scope' => 'namespaced',
         'strict' => true,
     ],
-    'new_with_braces' => [
+    'new_with_parentheses' => [
         'named_class' => true,
         'anonymous_class' => false,
     ],
