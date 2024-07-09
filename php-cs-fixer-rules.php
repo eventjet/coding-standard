@@ -64,6 +64,7 @@ return [
     'no_trailing_comma_in_singleline' => true,
     'no_unused_imports' => true,
     'no_useless_else' => true,
+    'no_useless_concat_operator' => true,
     'nullable_type_declaration_for_default_null_value' => true,
     'ordered_imports' => [
         'imports_order' => ['class', 'function', 'const'],
