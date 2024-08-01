@@ -2,4 +2,6 @@
 
 declare(strict_types=1);
 
-echo 'foo' . 'bar';
+$var = 'bar';
+
+echo 'foo' . $var;
