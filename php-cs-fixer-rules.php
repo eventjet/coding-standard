@@ -72,6 +72,7 @@ return [
     ],
     'phpdoc_trim' => true,
     'php_unit_data_provider_static' => true,
+    'single_quote' => true,
     'single_space_around_construct' => true,
     'strict_comparison' => true,
     'trailing_comma_in_multiline' => [
