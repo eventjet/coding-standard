@@ -27,6 +27,9 @@ final class RulesTest extends TestCase
         // for `strlen()`.
         ['global-function-not-imported.php', 'php-cs-fixer'],
         ['global-constant-not-imported.php', 'php-cs-fixer'],
+        // PHPCS doesn't seem to have a rule for heredoc/nowdoc indentation
+        ['NowdocNotIndented.php', 'phpcs'],
+        ['HeredocNotIndented.php', 'phpcs'],
     ];
 
     private static function phpCsFixerCommand(string $file): string
