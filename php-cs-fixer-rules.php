@@ -28,6 +28,9 @@ return [
         'import_constants' => true,
         'import_functions' => true,
     ],
+    'heredoc_indentation' => [
+        'indentation' => 'start_plus_one',
+    ],
     'native_constant_invocation' => [
         'scope' => 'namespaced',
         'strict' => true,
