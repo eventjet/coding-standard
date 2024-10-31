@@ -32,7 +32,7 @@ final class RulesTest extends TestCase
     private static function phpCsFixerCommand(string $file): string
     {
         return sprintf(
-            '%s/../vendor/bin/php-cs-fixer fix --dry-run --config %s/php-cs-fixer-config.php %s',
+            'PHP_CS_FIXER_IGNORE_ENV=1 %s/../vendor/bin/php-cs-fixer fix --dry-run --config %s/php-cs-fixer-config.php %s',
             __DIR__,
             __DIR__,
             $file
