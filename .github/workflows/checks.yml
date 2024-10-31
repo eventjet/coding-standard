@@ -7,18 +7,21 @@ jobs:
 
     strategy:
       matrix:
-        php: ["8.1", "8.2"]
+        php: ["8.1", "8.2", "8.3", "8.4"]
         composer_flags:
           - '--prefer-lowest'
           - ''
 
     runs-on: ubuntu-latest
-    container:
-      image: eventjet/checks-${{ matrix.php }}:latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
 
       - name: Prepare environment
         run: |
