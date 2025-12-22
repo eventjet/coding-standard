@@ -22,6 +22,7 @@
         "webimpress/coding-standard": "^1.1"
     },
     "require-dev": {
+        "carthage-software/mago": "^1.0",
         "phpunit/phpunit": "^10.2"
     },
     "autoload": {
@@ -37,6 +38,7 @@
     },
     "config": {
         "allow-plugins": {
+            "carthage-software/mago": true,
             "dealerdirect/phpcodesniffer-composer-installer": true
         },
         "sort-packages": true
