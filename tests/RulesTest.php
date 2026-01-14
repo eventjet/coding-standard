@@ -4,18 +4,22 @@ declare(strict_types=1);
 
 namespace Eventjet\CodingStandard\Test;
 
-use DirectoryIterator;use PHPUnit\Framework\TestCase;use Symfony\Component\Process\Process;use function array_merge;use function basename;use function implode;use function in_array;use function sprintf;
+use DirectoryIterator;
+use PHPUnit\Framework\TestCase;
+use Symfony\Component\Process\Process;
+
+use function array_merge;
+use function basename;
+use function implode;
+use function in_array;
+use function sprintf;
 
 /**
  * @phpstan-type Tool 'phpcs' | 'php-cs-fixer' | 'mago'
  */
 final class RulesTest extends TestCase
 {
-    private const SKIPPED_VALID = [
-        // The indentation doesn't seem to be configurable in Mago
-        ['PrivateConstNowdoc.php', 'mago'],
-        ['PrivateConstHeredoc.php', 'mago'],
-    ];
+    private const SKIPPED_VALID = [];
     /** @var list<array{string, Tool}> */
     private const SKIPPED_INVALID = [
         // PHP CS Fixer has no rule for string[] vs array<array-key, string>
