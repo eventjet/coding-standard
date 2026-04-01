@@ -31,9 +31,6 @@ final class RulesTest extends TestCase
         ['nullable-parameter.php', 'phpcs'],
         ['nullable-return.php', 'phpcs'],
         // Mago doesn't have support for these yet
-        ['global-constant-fully-qualified.php', 'mago'],
-        ['global-constant-not-imported.php', 'mago'],
-        ['global-function-fully-qualified.php', 'mago'],
         ['unnecessary-param-annotation.php', 'mago'],
         ['unnecessary-return-annotation.php', 'mago'],
         ['wrong-array-typehint-syntax.php', 'mago'],

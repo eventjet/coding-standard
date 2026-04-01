@@ -4,8 +4,11 @@ null-type-hint = "pipe"
 space-after-cast-unary-prefix-operators = false
 
 [linter.rules]
+ambiguous-constant-access = { enabled = true, level = "error" }
 ambiguous-function-call = { enabled = true, level = "error" }
 assertion-style = { level = "error" }
 block-statement = { level = "error" }
 identity-comparison = { level = "error" }
+no-fully-qualified-global-function = { enabled = true, level = "error" }
+no-fully-qualified-global-constant = { enabled = true, level = "error" }
 no-redundant-string-concat = { level = "error" }
