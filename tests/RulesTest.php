@@ -33,7 +33,6 @@ final class RulesTest extends TestCase
         // PHP CS Fixer has no rule for multiple classes per file
         ['multiple-classes-per-file.php', 'php-cs-fixer'],
         // PHP CS Fixer has no equivalent sniff
-        ['array-bracket-spacing.php', 'php-cs-fixer'],
         ['bracketed-namespace.php', 'php-cs-fixer'],
         ['deprecated-function.php', 'php-cs-fixer'],
         ['php4-constructor.php', 'php-cs-fixer'],

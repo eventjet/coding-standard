@@ -80,6 +80,7 @@ return [
     ],
     'no_multiline_whitespace_around_double_arrow' => true,
     'no_singleline_whitespace_before_semicolons' => true,
+    'no_spaces_around_offset' => true,
     'no_superfluous_elseif' => true,
     'no_superfluous_phpdoc_tags' => [
         // Psalm wants us to have an explicit type annotation whenever we assign `mixed` to a variable.
