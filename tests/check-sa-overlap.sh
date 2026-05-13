@@ -22,6 +22,14 @@ EXPECTED_REL=(
     tests/fixtures/valid/loose-comparison.php
 )
 
+for f in "${EXPECTED_REL[@]}"; do
+    if [ ! -f "$f" ]; then
+        echo "ERROR: registered canary fixture does not exist: $f" >&2
+        echo "Update EXPECTED_REL in $(basename "$0") if the fixture was renamed or removed." >&2
+        exit 1
+    fi
+done
+
 expected="$(for f in "${EXPECTED_REL[@]}"; do realpath "$f"; done | sort -u)"
 
 phpstan_stderr="$(mktemp)"
