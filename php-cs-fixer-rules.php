@@ -113,7 +113,12 @@ return [
     ],
     'phpdoc_scalar' => true,
     'phpdoc_trim' => true,
-    'phpdoc_var_annotation_correct_order' => true,
+    // Wrong-order inline `@var` is lint territory — PHPStan and Psalm both
+    // fail to bind the type. Auto-canonicalizing it on the CS side hides the
+    // mistake from SA feedback instead of letting the user see and fix it,
+    // so keep this rule explicitly off (paired with the InvalidFormat exclude
+    // in Eventjet/ruleset.xml).
+    'phpdoc_var_annotation_correct_order' => false,
     'php_unit_data_provider_static' => true,
     'self_accessor' => true,
     'simplified_if_return' => true,
