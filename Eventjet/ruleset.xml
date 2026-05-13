@@ -299,4 +299,18 @@
 
     <!-- Disallows using loose == and != comparison operators -->
     <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators" phpcs-only="true"/>
+
+    <!-- Forbid whitespace after `[` and before `]` in single-line arrays;
+         enforce a single space after commas in single-line arrays -->
+    <rule ref="SlevomatCodingStandard.Arrays.SingleLineArrayWhitespace"/>
+
+    <!-- Forbid leading/trailing empty lines inside doc comments -->
+    <rule ref="SlevomatCodingStandard.Commenting.DocCommentSpacing"/>
+
+    <!-- Forbid spaces around `|` and `&` in union/intersection type hints -->
+    <rule ref="SlevomatCodingStandard.TypeHints.DNFTypeHintFormat">
+        <properties>
+            <property name="withSpacesAroundOperators" value="no"/>
+        </properties>
+    </rule>
 </ruleset>
