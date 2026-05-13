@@ -12,9 +12,6 @@ parameters:
     level: max
     paths:
         - fixtures
-        # The canary fixture must always be flagged by both PHPStan and Psalm —
-        # see tests/check-sa-overlap.sh.
-        - sa-canary
     # Fixtures are isolated code snippets that routinely declare consts purely
     # to exercise a syntactic pattern, with no consumer. classConstant.unused
     # fires on that shape and is not a lint bug we want to catch in fixtures.

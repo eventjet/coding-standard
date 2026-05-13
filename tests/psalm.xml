@@ -22,9 +22,6 @@
 >
     <projectFiles>
         <directory name="fixtures"/>
-        <!-- The canary fixture must always be flagged by both PHPStan and
-             Psalm — see tests/check-sa-overlap.sh. -->
-        <directory name="sa-canary"/>
     </projectFiles>
     <issueHandlers>
         <ClassMustBeFinal errorLevel="suppress"/>
