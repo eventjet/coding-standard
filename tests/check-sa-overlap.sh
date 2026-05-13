@@ -32,8 +32,8 @@ done
 
 expected="$(for f in "${EXPECTED_REL[@]}"; do realpath "$f"; done | sort -u)"
 
-phpstan_stderr="$(mktemp)"
-psalm_stderr="$(mktemp)"
+phpstan_stderr="$(mktemp "${TMPDIR:-/tmp}/check-sa-overlap.phpstan.XXXXXX")"
+psalm_stderr="$(mktemp "${TMPDIR:-/tmp}/check-sa-overlap.psalm.XXXXXX")"
 trap 'rm -f "$phpstan_stderr" "$psalm_stderr"' EXIT
 
 phpstan_json="$(vendor/bin/phpstan analyse \
