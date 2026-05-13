@@ -24,15 +24,19 @@ EXPECTED_REL=(
 
 expected="$(for f in "${EXPECTED_REL[@]}"; do realpath "$f"; done | sort -u)"
 
+phpstan_stderr="$(mktemp)"
+psalm_stderr="$(mktemp)"
+trap 'rm -f "$phpstan_stderr" "$psalm_stderr"' EXIT
+
 phpstan_json="$(vendor/bin/phpstan analyse \
     --configuration tests/phpstan.neon \
     --error-format=json \
-    --no-progress 2>/dev/null || true)"
+    --no-progress 2>"$phpstan_stderr" || true)"
 
 psalm_json="$(vendor/bin/psalm \
     --config tests/psalm.xml \
     --output-format=json \
-    --no-progress 2>/dev/null || true)"
+    --no-progress 2>"$psalm_stderr" || true)"
 
 phpstan_files="$(printf '%s' "$phpstan_json" | jq -r '.files? | keys[]?' | sort -u)"
 psalm_files="$(printf '%s' "$psalm_json" | jq -r '.[]?.file_path // empty' | sort -u)"
@@ -51,6 +55,12 @@ if [ -n "$missing" ]; then
     echo
     echo "Psalm flagged:"
     printf '%s\n' "${psalm_files:-(nothing)}"
+    echo
+    echo "PHPStan stderr:"
+    cat "$phpstan_stderr" 2>/dev/null || echo "(empty)"
+    echo
+    echo "Psalm stderr:"
+    cat "$psalm_stderr" 2>/dev/null || echo "(empty)"
     echo
     echo "SA configs may have drifted too lax, a tool may have crashed, or the JSON schema changed."
     exit 1
