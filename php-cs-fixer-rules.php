@@ -119,7 +119,10 @@ return [
     'simplified_if_return' => true,
     'single_quote' => true,
     'single_space_around_construct' => true,
-    'strict_comparison' => true,
+    // Loose comparison is lint territory — PHPStan and Psalm both flag it. Kept
+    // explicitly off so a broader preset (e.g. @PhpCsFixer, @Symfony) can't
+    // re-enable it silently.
+    'strict_comparison' => false,
     'trailing_comma_in_multiline' => [
         'elements' => [
             'arrays',

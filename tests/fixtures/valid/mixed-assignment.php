@@ -9,5 +9,5 @@ function getFoo(array $struct): void
 {
     /** @var mixed $foo */
     $foo = $struct['foo'];
-    echo $foo;
+    var_export($foo);
 }

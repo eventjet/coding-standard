@@ -42,3 +42,13 @@ jobs:
       - name: Tests
         run: |
           vendor/bin/phpunit
+
+      # The SA-overlap gate is matrix-independent — it asks whether PHPStan and
+      # Psalm both flag a fixture, which doesn't change across PHP versions or
+      # composer flags. Run it once on the canonical (latest stable + current
+      # deps) config. On PHP 8.4 + --prefer-lowest, ancient Psalm transitive
+      # deps emit deprecation warnings that corrupt the JSON output anyway.
+      - name: SA-overlap gate (fixtures flagged by both PHPStan and Psalm)
+        if: matrix.php == '8.4' && matrix.composer_flags == ''
+        run: |
+          tests/check-sa-overlap.sh
