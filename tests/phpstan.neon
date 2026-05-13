@@ -1,0 +1,24 @@
+# PHPStan config for the test fixtures.
+#
+# This project is a coding-standard package, not an application. We don't lint
+# our sniff/fixer sources with PHPStan (yet). PHPStan runs over the fixtures so
+# that if someone adds a fixture demonstrating something PHPStan already catches,
+# CI fails — that's the signal "this is lint territory, don't add a CS rule for it".
+#
+# If we ever want PHPStan to check the production sources too, add a separate
+# config at the repository root.
+
+parameters:
+    level: max
+    paths:
+        - fixtures
+    # Fixtures are isolated code snippets that routinely declare consts purely
+    # to exercise a syntactic pattern, with no consumer. classConstant.unused
+    # fires on that shape and is not a lint bug we want to catch in fixtures.
+    ignoreErrors:
+        - identifier: classConstant.unused
+
+includes:
+    - ../vendor/phpstan/phpstan-phpunit/extension.neon
+    - ../vendor/phpstan/phpstan-phpunit/rules.neon
+    - ../vendor/phpstan/phpstan-strict-rules/rules.neon

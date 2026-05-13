@@ -42,3 +42,11 @@ jobs:
       - name: Tests
         run: |
           vendor/bin/phpunit
+
+      - name: PHPStan (fixtures)
+        run: |
+          vendor/bin/phpstan analyse --configuration tests/phpstan.neon --no-progress
+
+      - name: Psalm (fixtures)
+        run: |
+          vendor/bin/psalm --config tests/psalm.xml --no-progress
