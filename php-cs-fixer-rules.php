@@ -79,6 +79,7 @@ return [
         ],
     ],
     'no_multiline_whitespace_around_double_arrow' => true,
+    'no_php4_constructor' => true,
     'no_singleline_whitespace_before_semicolons' => true,
     'no_spaces_around_offset' => true,
     'no_superfluous_elseif' => true,

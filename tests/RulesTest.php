@@ -35,7 +35,6 @@ final class RulesTest extends TestCase
         // PHP CS Fixer has no equivalent sniff
         ['bracketed-namespace.php', 'php-cs-fixer'],
         ['deprecated-function.php', 'php-cs-fixer'],
-        ['php4-constructor.php', 'php-cs-fixer'],
         ['text-before-open-tag.php', 'php-cs-fixer'],
         ['this-in-static.php', 'php-cs-fixer'],
         ['catch-exception.php', 'php-cs-fixer'],
