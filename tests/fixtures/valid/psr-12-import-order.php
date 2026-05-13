@@ -14,5 +14,5 @@ use function trigger_error;
 
 use const E_USER_DEPRECATED;
 
-new stdClass();
-trigger_error('Test', E_USER_DEPRECATED);
+$obj = new stdClass();
+trigger_error('Test ' . $obj::class, E_USER_DEPRECATED);

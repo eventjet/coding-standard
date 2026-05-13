@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+    Psalm config for the test fixtures.
+
+    This project is a coding-standard package, not an application. We don't run
+    Psalm against our sniff/fixer sources (yet). Psalm runs over the fixtures so
+    that if someone adds a fixture demonstrating something Psalm already catches,
+    CI fails — that's the signal "this is lint territory, don't add a CS rule for it".
+
+    Unused-symbol issues (UnusedClass, UnusedVariable, PossiblyUnusedMethod) and
+    structural opinions (ClassMustBeFinal, MissingOverrideAttribute,
+    MissingClassConstType) are suppressed because fixtures are isolated code
+    snippets, not real consumers — they will always look "unused" or "non-final".
+
+    If we ever want Psalm to check the production sources too, add a separate
+    config at the repository root.
+-->
+<psalm
+    errorLevel="1"
+    findUnusedBaselineEntry="true"
+    strictBinaryOperands="true"
+>
+    <projectFiles>
+        <directory name="fixtures"/>
+    </projectFiles>
+    <issueHandlers>
+        <ClassMustBeFinal errorLevel="suppress"/>
+        <MissingOverrideAttribute errorLevel="suppress"/>
+        <UnusedClass errorLevel="suppress"/>
+        <UnusedVariable errorLevel="suppress"/>
+        <PossiblyUnusedMethod errorLevel="suppress"/>
+        <MissingClassConstType errorLevel="suppress"/>
+    </issueHandlers>
+</psalm>

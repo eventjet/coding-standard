@@ -297,6 +297,10 @@
     <!-- Disallow array syntax (T[]) in favor of generic syntax (array<array-key, T>) -->
     <rule ref="SlevomatCodingStandard.TypeHints.DisallowArrayTypeHintSyntax"/>
 
-    <!-- Disallows using loose == and != comparison operators -->
-    <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators" phpcs-only="true"/>
+    <!-- Loose comparison (== / !=) is lint territory — PHPStan and Psalm both
+         flag it. Kept explicitly disabled so future imports of broader rulesets
+         can't silently re-enable it. -->
+    <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators">
+        <severity>0</severity>
+    </rule>
 </ruleset>
