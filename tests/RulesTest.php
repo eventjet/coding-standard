@@ -30,6 +30,8 @@ final class RulesTest extends TestCase
         // PHPCS doesn't seem to have a rule for heredoc/nowdoc indentation
         ['NowdocNotIndented.php', 'phpcs'],
         ['HeredocNotIndented.php', 'phpcs'],
+        // PHP CS Fixer has no rule for multiple classes per file
+        ['multiple-classes-per-file.php', 'php-cs-fixer'],
     ];
 
     private static function phpCsFixerCommand(string $file): string
