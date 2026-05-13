@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+/** @return iterable<int, int> */
 function generator(): iterable
 {
     yield(1);

@@ -2,4 +2,7 @@
 
 declare(strict_types=1);
 
-$foo = true&&false;
+function logicalOperatorSpacingCheck(bool $a, bool $b): bool
+{
+    return $a&&$b;
+}

@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
-if(true) {
-    echo 'yes';
+function controlSignatureCheck(bool $cond): void
+{
+    if($cond) {
+        echo 'yes';
+    }
 }

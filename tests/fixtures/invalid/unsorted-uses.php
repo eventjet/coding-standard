@@ -8,4 +8,3 @@ use RuntimeException;
 use LogicException;
 
 throw new LogicException('a');
-throw new RuntimeException('b');
