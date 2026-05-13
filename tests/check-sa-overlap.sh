@@ -16,6 +16,12 @@
 # is disabled).
 set -uo pipefail
 
+if ! command -v jq >/dev/null 2>&1; then
+    echo "ERROR: jq is required but was not found in PATH." >&2
+    echo "Install jq (e.g., 'apt-get install jq' or 'brew install jq')." >&2
+    exit 1
+fi
+
 cd "$(dirname "$0")/.."
 
 EXPECTED_REL=(
@@ -46,8 +52,8 @@ psalm_json="$(vendor/bin/psalm \
     --output-format=json \
     --no-progress 2>"$psalm_stderr" || true)"
 
-phpstan_files="$(printf '%s' "$phpstan_json" | jq -r '.files? | keys[]?' | sort -u)"
-psalm_files="$(printf '%s' "$psalm_json" | jq -r '.[]?.file_path // empty' | sort -u)"
+phpstan_files="$(printf '%s' "$phpstan_json" | jq -r '.files? | keys[]?' 2>>"$phpstan_stderr" | sort -u)"
+psalm_files="$(printf '%s' "$psalm_json" | jq -r '.[]?.file_path // empty' 2>>"$psalm_stderr" | sort -u)"
 
 intersection="$(comm -12 <(printf '%s\n' "$phpstan_files") <(printf '%s\n' "$psalm_files") | sed '/^$/d')"
 
