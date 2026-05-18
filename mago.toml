@@ -17,4 +17,7 @@ no-fully-qualified-global-function = { enabled = true, level = "error" }
 no-fully-qualified-global-constant = { enabled = true, level = "error" }
 no-redundant-string-concat = { level = "error" }
 no-redundant-use = { enabled = true, level = "error" }
+no-unused-closure-capture = { enabled = true, level = "error" }
 strict-types = { enabled = true, level = "error" }
+variable-name = { enabled = true, level = "error", camel = true, either = false }
+yoda-conditions = { enabled = true, level = "error", mode = "deny" }

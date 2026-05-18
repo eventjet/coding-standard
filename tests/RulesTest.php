@@ -34,7 +34,6 @@ final class RulesTest extends TestCase
         ['unnecessary-param-annotation.php', 'mago'],
         ['unnecessary-return-annotation.php', 'mago'],
         ['wrong-array-typehint-syntax.php', 'mago'],
-        ['unused-closure-use.php', 'mago'],
         ['non-static-data-provider.php', 'mago'],
         ['self-member-reference.php', 'mago'],
         ['catch-exception.php', 'mago'],
@@ -42,11 +41,9 @@ final class RulesTest extends TestCase
         ['use-leading-backslash.php', 'mago'],
         ['long-type-hint.php', 'mago'],
         ['missing-const-visibility.php', 'mago'],
-        ['yoda-comparison.php', 'mago'],
         ['dead-catch.php', 'mago'],
         // Mago has no-assign-in-condition but doesn't flag assignments nested inside other expressions
         ['assignment-in-condition.php', 'mago'],
-        ['snake-case-variable.php', 'mago'],
         ['logical-operator-and.php', 'mago'],
         // PHP CS Fixer has no rule for multiple classes per file
         ['multiple-classes-per-file.php', 'php-cs-fixer'],
