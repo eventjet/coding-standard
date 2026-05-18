@@ -1,5 +1,16 @@
 # Eventjet Coding Standard
 
+## Scope: formatting, not linting
+
+This package historically included rules that overlap with what static
+analyzers (PHPStan, Psalm) already catch. Going forward we will not add such
+rules, and we will progressively disable existing ones — if PHPStan or Psalm
+flag a pattern, a CS rule for it is duplicate work.
+
+Treat this package as a formatter/style standard only. To get the full
+benefit, run a static analyzer alongside it; PHP-CS-Fixer and PHPCS are not a
+substitute for PHPStan or Psalm.
+
 ## PHP-CS-Fixer
 ### Basic Usage:
 Add the following `.php-cs-fixer.dist.php` file to your project's root:

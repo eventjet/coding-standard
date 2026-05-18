@@ -4,4 +4,6 @@ declare(strict_types=1);
 
 namespace Invalid;
 
-$foo = 'foo' == 'bar';
+use stdClass;
+
+echo 'no stdClass used';

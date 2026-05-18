@@ -34,6 +34,36 @@ final class RulesTest extends TestCase
         ['unnecessary-param-annotation.php', 'mago'],
         ['unnecessary-return-annotation.php', 'mago'],
         ['wrong-array-typehint-syntax.php', 'mago'],
+        ['unused-closure-use.php', 'mago'],
+        ['non-static-data-provider.php', 'mago'],
+        ['self-member-reference.php', 'mago'],
+        ['catch-exception.php', 'mago'],
+        ['useless-if-with-return.php', 'mago'],
+        ['use-leading-backslash.php', 'mago'],
+        ['long-type-hint.php', 'mago'],
+        ['missing-const-visibility.php', 'mago'],
+        ['yoda-comparison.php', 'mago'],
+        ['dead-catch.php', 'mago'],
+        // Mago has no-assign-in-condition but doesn't flag assignments nested inside other expressions
+        ['assignment-in-condition.php', 'mago'],
+        ['snake-case-variable.php', 'mago'],
+        ['logical-operator-and.php', 'mago'],
+        // PHP CS Fixer has no rule for multiple classes per file
+        ['multiple-classes-per-file.php', 'php-cs-fixer'],
+        // PHP CS Fixer has no equivalent sniff
+        ['bracketed-namespace.php', 'php-cs-fixer'],
+        ['deprecated-function.php', 'php-cs-fixer'],
+        ['text-before-open-tag.php', 'php-cs-fixer'],
+        ['catch-exception.php', 'php-cs-fixer'],
+        ['assignment-in-condition.php', 'php-cs-fixer'],
+        ['dead-catch.php', 'php-cs-fixer'],
+        ['snake-case-variable.php', 'php-cs-fixer'],
+        ['forbidden-class-comment.php', 'php-cs-fixer'],
+        ['multiple-namespaces.php', 'php-cs-fixer'],
+        // PHPCS has no equivalent sniff
+        ['blank-line-after-phpdoc.php', 'phpcs'],
+        ['trailing-comma-singleline.php', 'phpcs'],
+        ['multiline-double-arrow.php', 'phpcs'],
     ];
 
     private static function phpCsFixerCommand(string $file): Process

@@ -23,6 +23,20 @@ return [
     'function_declaration' => [
         'closure_fn_spacing' => 'none',
     ],
+    'general_phpdoc_annotation_remove' => [
+        'annotations' => [
+            'api',
+            'author',
+            'category',
+            'copyright',
+            'created',
+            'license',
+            'package',
+            'since',
+            'subpackage',
+            'version',
+        ],
+    ],
     'global_namespace_import' => [
         'import_classes' => true,
         'import_constants' => true,
@@ -31,18 +45,24 @@ return [
     'heredoc_indentation' => [
         'indentation' => 'start_plus_one',
     ],
+    'lambda_not_used_import' => true,
     'native_constant_invocation' => [
         'scope' => 'namespaced',
         'strict' => true,
     ],
+    'native_function_casing' => true,
     'native_function_invocation' => [
         'include' => ['@all'],
         'scope' => 'namespaced',
         'strict' => true,
     ],
+    'native_type_declaration_casing' => true,
     'new_with_parentheses' => [
         'named_class' => true,
         'anonymous_class' => false,
+    ],
+    'no_alias_functions' => [
+        'sets' => ['@internal'],
     ],
     'no_blank_lines_after_phpdoc' => true,
     'no_empty_comment' => true,
@@ -59,12 +79,30 @@ return [
         ],
     ],
     'no_multiline_whitespace_around_double_arrow' => true,
+    'no_php4_constructor' => true,
+    'no_singleline_whitespace_before_semicolons' => true,
+    'no_spaces_around_offset' => true,
     'no_superfluous_elseif' => true,
     'no_superfluous_phpdoc_tags' => [
         // Psalm wants us to have an explicit type annotation whenever we assign `mixed` to a variable.
         'allow_mixed' => true,
     ],
     'no_trailing_comma_in_singleline' => true,
+    'no_unneeded_control_parentheses' => [
+        'statements' => [
+            'break',
+            'clone',
+            'continue',
+            'echo_print',
+            'negative_instanceof',
+            'others',
+            'return',
+            'switch_case',
+            'yield',
+            'yield_from',
+        ],
+    ],
+    'no_unneeded_final_method' => true,
     'no_unused_imports' => true,
     'no_useless_else' => true,
     'no_useless_concat_operator' => true,
@@ -76,11 +114,23 @@ return [
         'imports_order' => ['class', 'function', 'const'],
         'sort_algorithm' => 'alpha',
     ],
+    'phpdoc_scalar' => true,
     'phpdoc_trim' => true,
+    // Wrong-order inline `@var` is lint territory — PHPStan and Psalm both
+    // fail to bind the type. Auto-canonicalizing it on the CS side hides the
+    // mistake from SA feedback instead of letting the user see and fix it,
+    // so keep this rule explicitly off (paired with the InvalidFormat exclude
+    // in Eventjet/ruleset.xml).
+    'phpdoc_var_annotation_correct_order' => false,
     'php_unit_data_provider_static' => true,
+    'self_accessor' => true,
+    'simplified_if_return' => true,
     'single_quote' => true,
     'single_space_around_construct' => true,
-    'strict_comparison' => true,
+    // Loose comparison is lint territory — PHPStan and Psalm both flag it. Kept
+    // explicitly off so a broader preset (e.g. @PhpCsFixer, @Symfony) can't
+    // re-enable it silently.
+    'strict_comparison' => false,
     'trailing_comma_in_multiline' => [
         'elements' => [
             'arrays',

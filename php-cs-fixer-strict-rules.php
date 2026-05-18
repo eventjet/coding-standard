@@ -39,7 +39,6 @@ return array_merge($basicRules, [
         'sort_algorithm' => 'none',
         'null_adjustment' => 'always_last',
     ],
-    'self_accessor' => true,
     'static_lambda' => true,
     'trailing_comma_in_multiline' => [
         'elements' => [
