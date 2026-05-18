@@ -25,7 +25,9 @@ fi
 cd "$(dirname "$0")/.."
 
 EXPECTED_REL=(
+    tests/fixtures/valid/inline-doc-comment.php
     tests/fixtures/valid/loose-comparison.php
+    tests/fixtures/valid/ThisInStatic.php
 )
 
 for f in "${EXPECTED_REL[@]}"; do

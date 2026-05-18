@@ -80,8 +80,12 @@
     <!-- Forbid `AND` and `OR`, require `&&` and `||` -->
     <rule ref="Squiz.Operators.ValidLogicalOperators"/>
 
-    <!-- Forbid `$this` inside static function -->
-    <rule ref="Squiz.Scope.StaticThisUsage"/>
+    <!-- `$this` in a static method is lint territory — PHPStan and Psalm both
+         flag it. Kept explicitly disabled so future imports of broader rulesets
+         can't silently re-enable it. -->
+    <rule ref="Squiz.Scope.StaticThisUsage">
+        <severity>0</severity>
+    </rule>
 
     <!-- String concatenation -->
     <rule ref="Squiz.Strings.ConcatenationSpacing">
@@ -148,8 +152,14 @@
         </properties>
     </rule>
 
-    <!-- report invalid format of inline phpDocs with @var -->
-    <rule ref="SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration"/>
+    <!-- The other codes (InvalidCommentType, MissingVariable, NoAssignment) are
+         genuine formatting/structural checks, but InvalidFormat (malformed
+         `@var` syntax) is lint territory — PHPStan and Psalm both fail to bind
+         the type when the annotation is malformed. Excluded explicitly so a
+         future ruleset import can't silently re-enable just that code. -->
+    <rule ref="SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration">
+        <exclude name="SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration.InvalidFormat"/>
+    </rule>
 
     <!-- checks if Throwable is used instead of Exception -->
     <rule ref="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly"/>
@@ -302,5 +312,19 @@
          can't silently re-enable it. -->
     <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators">
         <severity>0</severity>
+    </rule>
+
+    <!-- Forbid whitespace after `[` and before `]` in single-line arrays;
+         enforce a single space after commas in single-line arrays -->
+    <rule ref="SlevomatCodingStandard.Arrays.SingleLineArrayWhitespace"/>
+
+    <!-- Forbid leading/trailing empty lines inside doc comments -->
+    <rule ref="SlevomatCodingStandard.Commenting.DocCommentSpacing"/>
+
+    <!-- Forbid spaces around `|` and `&` in union/intersection type hints -->
+    <rule ref="SlevomatCodingStandard.TypeHints.DNFTypeHintFormat">
+        <properties>
+            <property name="withSpacesAroundOperators" value="no"/>
+        </properties>
     </rule>
 </ruleset>

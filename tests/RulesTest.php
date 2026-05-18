@@ -32,6 +32,20 @@ final class RulesTest extends TestCase
         ['HeredocNotIndented.php', 'phpcs'],
         // PHP CS Fixer has no rule for multiple classes per file
         ['multiple-classes-per-file.php', 'php-cs-fixer'],
+        // PHP CS Fixer has no equivalent sniff
+        ['bracketed-namespace.php', 'php-cs-fixer'],
+        ['deprecated-function.php', 'php-cs-fixer'],
+        ['text-before-open-tag.php', 'php-cs-fixer'],
+        ['catch-exception.php', 'php-cs-fixer'],
+        ['assignment-in-condition.php', 'php-cs-fixer'],
+        ['dead-catch.php', 'php-cs-fixer'],
+        ['snake-case-variable.php', 'php-cs-fixer'],
+        ['forbidden-class-comment.php', 'php-cs-fixer'],
+        ['multiple-namespaces.php', 'php-cs-fixer'],
+        // PHPCS has no equivalent sniff
+        ['blank-line-after-phpdoc.php', 'phpcs'],
+        ['trailing-comma-singleline.php', 'phpcs'],
+        ['multiline-double-arrow.php', 'phpcs'],
     ];
 
     private static function phpCsFixerCommand(string $file): string
