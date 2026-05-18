@@ -265,9 +265,6 @@
     <!-- Require new instances with parentheses -->
     <rule ref="SlevomatCodingStandard.ControlStructures.NewWithParentheses"/>
 
-    <!-- Forbid usage of conditions when a simple return can be used -->
-    <rule ref="SlevomatCodingStandard.ControlStructures.UselessIfConditionWithReturn"/>
-
     <!-- Forbid unused variables passed to closures via `use` -->
     <rule ref="SlevomatCodingStandard.Functions.UnusedInheritedVariablePassedToClosure"/>
 
