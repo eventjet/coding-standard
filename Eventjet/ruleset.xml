@@ -137,7 +137,6 @@
                 name="forbiddenAnnotations"
                 type="array"
                 value="
-                    @api,
                     @author,
                     @category,
                     @copyright,
