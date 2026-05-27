@@ -25,7 +25,6 @@ return [
     ],
     'general_phpdoc_annotation_remove' => [
         'annotations' => [
-            'api',
             'author',
             'category',
             'copyright',
