@@ -43,13 +43,25 @@ final class RulesTest extends TestCase
         ['dead-catch.php', 'mago'],
         ['phpdoc-not-trimmed.php', 'mago'],
         ['forbidden-class-comment.php', 'mago'],
-        ['php4-constructor.php', 'mago'],
         ['forbidden-author-annotation.php', 'mago'],
         ['blank-line-after-phpdoc.php', 'mago'],
         ['bracketed-namespace.php', 'mago'],
         // Mago has no-assign-in-condition but doesn't flag assignments nested inside other expressions
         ['assignment-in-condition.php', 'mago'],
         ['logical-operator-and.php', 'mago'],
+        // PHP CS Fixer has no naming rules; renaming a symbol is not a safe automatic fix
+        ['lowercase-class-constant.php', 'php-cs-fixer'],
+        ['snake-case-class.php', 'php-cs-fixer'],
+        ['snake-case-enum.php', 'php-cs-fixer'],
+        ['snake-case-interface.php', 'php-cs-fixer'],
+        ['snake-case-method.php', 'php-cs-fixer'],
+        ['snake-case-property.php', 'php-cs-fixer'],
+        ['snake-case-trait.php', 'php-cs-fixer'],
+        // PHP CS Fixer rewrites function aliases, but has no rule for the other forbidden functions
+        ['forbidden-function-compact.php', 'php-cs-fixer'],
+        ['forbidden-function-extract.php', 'php-cs-fixer'],
+        ['forbidden-function-is-null.php', 'php-cs-fixer'],
+        ['forbidden-function-settype.php', 'php-cs-fixer'],
         // PHP CS Fixer has no rule for multiple classes per file
         ['multiple-classes-per-file.php', 'php-cs-fixer'],
         // PHP CS Fixer has no equivalent sniff
