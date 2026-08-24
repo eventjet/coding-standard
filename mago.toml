@@ -1,5 +1,10 @@
 [formatter]
 array-table-style-alignment = false
+inline-empty-classlike-braces = false
+inline-empty-closure-braces = false
+inline-empty-constructor-braces = false
+inline-empty-function-braces = false
+inline-empty-method-braces = false
 null-type-hint = "pipe"
 space-after-cast-unary-prefix-operators = false
 
@@ -13,11 +18,15 @@ explicit-nullable-param = { enabled = true, level = "error" }
 no-alias-function = { enabled = true, level = "error" }
 no-assign-in-condition = { enabled = true, level = "error" }
 no-else-clause = { enabled = true, level = "error" }
+no-empty-comment = { enabled = true, level = "error" }
 no-fully-qualified-global-function = { enabled = true, level = "error" }
 no-fully-qualified-global-constant = { enabled = true, level = "error" }
+no-redundant-final = { enabled = true, level = "error" }
 no-redundant-string-concat = { level = "error" }
 no-redundant-use = { enabled = true, level = "error" }
 no-unused-closure-capture = { enabled = true, level = "error" }
+single-class-per-file = { enabled = true, level = "error" }
 strict-types = { enabled = true, level = "error" }
+valid-docblock = { enabled = true, level = "error" }
 variable-name = { enabled = true, level = "error", camel = true, either = false }
 yoda-conditions = { enabled = true, level = "error", mode = "deny" }

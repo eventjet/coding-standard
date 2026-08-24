@@ -42,6 +42,12 @@ final class RulesTest extends TestCase
         ['long-type-hint.php', 'mago'],
         ['missing-const-visibility.php', 'mago'],
         ['dead-catch.php', 'mago'],
+        ['phpdoc-not-trimmed.php', 'mago'],
+        ['forbidden-class-comment.php', 'mago'],
+        ['php4-constructor.php', 'mago'],
+        ['forbidden-author-annotation.php', 'mago'],
+        ['blank-line-after-phpdoc.php', 'mago'],
+        ['bracketed-namespace.php', 'mago'],
         // Mago has no-assign-in-condition but doesn't flag assignments nested inside other expressions
         ['assignment-in-condition.php', 'mago'],
         ['logical-operator-and.php', 'mago'],
