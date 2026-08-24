@@ -6,10 +6,10 @@ namespace Eventjet\CodingStandard\Test;
 
 use DirectoryIterator;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Process\Process;
 
 use function array_merge;
 use function basename;
-use function exec;
 use function implode;
 use function in_array;
 use function sprintf;
@@ -48,14 +48,26 @@ final class RulesTest extends TestCase
         ['multiline-double-arrow.php', 'phpcs'],
     ];
 
-    private static function phpCsFixerCommand(string $file): string
+    private static function phpCsFixerCommand(string $file): Process
     {
-        return sprintf(
-            'PHP_CS_FIXER_IGNORE_ENV=1 %s/../vendor/bin/php-cs-fixer fix --dry-run --config %s/php-cs-fixer-config.php %s',
-            __DIR__,
-            __DIR__,
-            $file
-        );
+        $process = new Process([
+            'vendor/bin/php-cs-fixer',
+            'fix',
+            '--dry-run',
+            '--config',
+            'tests/php-cs-fixer-config.php',
+            $file,
+        ]);
+        $process->setWorkingDirectory(__DIR__ . '/../');
+        $process->setEnv(['PHP_CS_FIXER_IGNORE_ENV' => '1']);
+        return $process;
+    }
+
+    private static function codeSnifferCommand(string $file): Process
+    {
+        $process = new Process(['vendor/bin/phpcs', '--standard=EventjetStrict', $file]);
+        $process->setWorkingDirectory(__DIR__ . '/../');
+        return $process;
     }
 
     /**
@@ -110,15 +122,15 @@ final class RulesTest extends TestCase
     private function assertIsValid(string $file, string $tool): void
     {
         $command = $tool === 'phpcs'
-            ? sprintf('%s/../vendor/bin/phpcs --standard=EventjetStrict %s', __DIR__, $file)
+            ? self::codeSnifferCommand($file)
             : self::phpCsFixerCommand($file);
-        exec($command, $output, $return);
-        $lines = array_merge(
-            [sprintf('Failed asserting that %s is valid.', $file)],
-            $output
-        );
+        $command->run();
+        $lines = array_merge([sprintf('Failed asserting that %s is valid.', $file)], [
+            $command->getOutput(),
+            $command->getErrorOutput(),
+        ]);
         $message = implode("\n", $lines);
-        self::assertSame(0, $return, $message);
+        self::assertTrue($command->isSuccessful(), $message);
     }
 
     /**
@@ -127,10 +139,10 @@ final class RulesTest extends TestCase
     private function assertIsInvalid(string $file, string $tool): void
     {
         $command = $tool === 'phpcs'
-            ? sprintf('%s/../vendor/bin/phpcs --standard=EventjetStrict %s', __DIR__, $file)
+            ? self::codeSnifferCommand($file)
             : self::phpCsFixerCommand($file);
-        exec($command, $output, $return);
-        self::assertNotSame(0, $return, sprintf('Failed asserting that %s is invalid.', $file));
+        $command->run();
+        self::assertNotTrue($command->isSuccessful(), sprintf('Failed asserting that %s is invalid.', $file));
     }
 
     /**
