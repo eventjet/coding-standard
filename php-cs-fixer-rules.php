@@ -45,6 +45,7 @@ return [
         'indentation' => 'start_plus_one',
     ],
     'lambda_not_used_import' => true,
+    'logical_operators' => true,
     'native_constant_invocation' => [
         'scope' => 'namespaced',
         'strict' => true,
