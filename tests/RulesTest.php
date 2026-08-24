@@ -30,6 +30,19 @@ final class RulesTest extends TestCase
         // PHPCS doesn't seem to have a rule for heredoc/nowdoc indentation
         ['NowdocNotIndented.php', 'phpcs'],
         ['HeredocNotIndented.php', 'phpcs'],
+        // PHP CS Fixer has no naming rules; renaming a symbol is not a safe automatic fix
+        ['lowercase-class-constant.php', 'php-cs-fixer'],
+        ['snake-case-class.php', 'php-cs-fixer'],
+        ['snake-case-enum.php', 'php-cs-fixer'],
+        ['snake-case-interface.php', 'php-cs-fixer'],
+        ['snake-case-method.php', 'php-cs-fixer'],
+        ['snake-case-property.php', 'php-cs-fixer'],
+        ['snake-case-trait.php', 'php-cs-fixer'],
+        // PHP CS Fixer rewrites function aliases, but has no rule for the other forbidden functions
+        ['forbidden-function-compact.php', 'php-cs-fixer'],
+        ['forbidden-function-extract.php', 'php-cs-fixer'],
+        ['forbidden-function-is-null.php', 'php-cs-fixer'],
+        ['forbidden-function-settype.php', 'php-cs-fixer'],
         // PHP CS Fixer has no rule for multiple classes per file
         ['multiple-classes-per-file.php', 'php-cs-fixer'],
         // PHP CS Fixer has no equivalent sniff
