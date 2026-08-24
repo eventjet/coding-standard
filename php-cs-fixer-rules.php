@@ -25,7 +25,6 @@ return [
     ],
     'general_phpdoc_annotation_remove' => [
         'annotations' => [
-            'api',
             'author',
             'category',
             'copyright',
@@ -124,7 +123,6 @@ return [
     'phpdoc_var_annotation_correct_order' => false,
     'php_unit_data_provider_static' => true,
     'self_accessor' => true,
-    'simplified_if_return' => true,
     'single_quote' => true,
     'single_space_around_construct' => true,
     // Loose comparison is lint territory — PHPStan and Psalm both flag it. Kept
