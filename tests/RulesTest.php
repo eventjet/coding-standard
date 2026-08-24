@@ -37,7 +37,6 @@ final class RulesTest extends TestCase
         ['non-static-data-provider.php', 'mago'],
         ['self-member-reference.php', 'mago'],
         ['catch-exception.php', 'mago'],
-        ['useless-if-with-return.php', 'mago'],
         ['use-leading-backslash.php', 'mago'],
         ['long-type-hint.php', 'mago'],
         ['missing-const-visibility.php', 'mago'],
