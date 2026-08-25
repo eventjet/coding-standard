@@ -30,6 +30,9 @@ final class RulesTest extends TestCase
         // PHPCS doesn't seem to have a rule for heredoc/nowdoc indentation
         ['NowdocNotIndented.php', 'phpcs'],
         ['HeredocNotIndented.php', 'phpcs'],
+        // PHPCS doesn't have a rule for this.
+        ['nullable-parameter.php', 'phpcs'],
+        ['nullable-return.php', 'phpcs'],
         // PHP CS Fixer has no rule for multiple classes per file
         ['multiple-classes-per-file.php', 'php-cs-fixer'],
         // PHP CS Fixer has no equivalent sniff
