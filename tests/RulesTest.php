@@ -19,14 +19,11 @@ use function sprintf;
  */
 final class RulesTest extends TestCase
 {
+    private const SKIPPED_VALID = [];
     /** @var list<array{string, Tool}> */
     private const SKIPPED_INVALID = [
         // PHP CS Fixer has no rule for string[] vs array<array-key, string>
         ['wrong-array-typehint-syntax.php', 'php-cs-fixer'],
-        // PHP CS Fixer's rule seems to only care about qualified symbols. It adds an import for `\strlen()`, but not
-        // for `strlen()`.
-        ['global-function-not-imported.php', 'php-cs-fixer'],
-        ['global-constant-not-imported.php', 'php-cs-fixer'],
         // PHPCS doesn't seem to have a rule for heredoc/nowdoc indentation
         ['NowdocNotIndented.php', 'phpcs'],
         ['HeredocNotIndented.php', 'phpcs'],
@@ -67,7 +64,11 @@ final class RulesTest extends TestCase
      */
     public function testValid(string $file, string $tool): void
     {
-        $this->assertIsValid($file, $tool);
+        if (in_array([basename($file), $tool], self::SKIPPED_VALID)) {
+            $this->assertIsInvalid($file, $tool);
+        } else {
+            $this->assertIsValid($file, $tool);
+        }
     }
 
     /**
@@ -89,10 +90,10 @@ final class RulesTest extends TestCase
     public function testInvalid(string $file, string $tool): void
     {
         if (in_array([basename($file), $tool], self::SKIPPED_INVALID)) {
-            self::markTestSkipped(sprintf('Skipping %s', $file));
+            $this->assertIsValid($file, $tool);
+        } else {
+            $this->assertIsInvalid($file, $tool);
         }
-
-        $this->assertIsInvalid($file, $tool);
     }
 
     /**
