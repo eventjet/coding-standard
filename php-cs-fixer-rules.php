@@ -114,6 +114,12 @@ return [
         'imports_order' => ['class', 'function', 'const'],
         'sort_algorithm' => 'alpha',
     ],
+    // Pairs with nullable_type_declaration above: that rule expands `?T` into a
+    // union, but writes it as `null|T`. This puts null back at the end.
+    'ordered_types' => [
+        'sort_algorithm' => 'none',
+        'null_adjustment' => 'always_last',
+    ],
     'phpdoc_scalar' => true,
     'phpdoc_trim' => true,
     // Wrong-order inline `@var` is lint territory — PHPStan and Psalm both
