@@ -5,9 +5,6 @@ declare(strict_types=1);
 $basicRules = include __DIR__ . '/php-cs-fixer-rules.php';
 
 return array_merge($basicRules, [
-    'nullable_type_declaration' => [
-        'syntax' => 'union',
-    ],
     'ordered_class_elements' => [
         'order' => [
             'use_trait',
@@ -34,10 +31,6 @@ return array_merge($basicRules, [
             'method_private',
             'method_private_abstract',
         ],
-    ],
-    'ordered_types' => [
-        'sort_algorithm' => 'none',
-        'null_adjustment' => 'always_last',
     ],
     'static_lambda' => true,
     'trailing_comma_in_multiline' => [
